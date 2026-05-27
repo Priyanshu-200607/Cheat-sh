@@ -138,41 +138,49 @@ function SnippetRow({ code, description, language, isDark }: SnippetRowProps) {
     <div className="snippet-row">
       {/* Code block */}
       <div className="snippet-code-block">
-        {isMultiLine ? (
-          <SyntaxHighlighter
-            language={normalizeLanguage(language)}
-            style={codeStyle}
-            customStyle={{
-              margin: 0,
-              borderRadius: '6px',
-              fontSize: '0.78rem',
-              background: isDark ? '#0d1117' : '#f6f8fa',
-              border: `1px solid ${isDark ? '#30363d' : '#d0d7de'}`,
-              padding: '0.75rem 1rem',
-              paddingRight: '3.5rem', // room for copy button
-            }}
-            wrapLongLines={false}
-            showLineNumbers={code.split('\n').length > 8}
-            lineNumberStyle={{ color: isDark ? '#6e7681' : '#9198a1', fontSize: '0.7rem', minWidth: '2.5em' }}
-          >
-            {code}
-          </SyntaxHighlighter>
-        ) : (
-          <code
-            style={{
-              background: isDark ? '#0d1117' : '#f6f8fa',
-              border: `1px solid ${isDark ? '#30363d' : '#d0d7de'}`,
-              borderRadius: '6px',
-              padding: '0.4rem 0.9rem',
-              display: 'block',
-              fontSize: '0.83rem',
-              color: isDark ? '#79c0ff' : '#0550ae',
-              paddingRight: '3.5rem',
-            }}
-          >
-            {code}
-          </code>
-        )}
+        <div className="code-scroll-wrapper">
+          {isMultiLine ? (
+            <SyntaxHighlighter
+              language={normalizeLanguage(language)}
+              style={codeStyle}
+              customStyle={{
+                margin: 0,
+                borderRadius: '6px',
+                fontSize: '0.78rem',
+                background: isDark ? '#0d1117' : '#f6f8fa',
+                border: `1px solid ${isDark ? '#30363d' : '#d0d7de'}`,
+                padding: '0.75rem 1rem',
+                paddingRight: '3.5rem', // room for copy button
+                overflowX: 'auto',
+                overflowY: 'visible',
+                WebkitOverflowScrolling: 'touch',
+              }}
+              wrapLongLines={false}
+              showLineNumbers={code.split('\n').length > 8}
+              lineNumberStyle={{ color: isDark ? '#6e7681' : '#9198a1', fontSize: '0.7rem', minWidth: '2.5em' }}
+            >
+              {code}
+            </SyntaxHighlighter>
+          ) : (
+            <code
+              style={{
+                background: isDark ? '#0d1117' : '#f6f8fa',
+                border: `1px solid ${isDark ? '#30363d' : '#d0d7de'}`,
+                borderRadius: '6px',
+                padding: '0.4rem 0.9rem',
+                display: 'block',
+                fontSize: '0.83rem',
+                color: isDark ? '#79c0ff' : '#0550ae',
+                paddingRight: '3.5rem',
+                overflowX: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {code}
+            </code>
+          )}
+        </div>
 
         {/* Copy button */}
         <button

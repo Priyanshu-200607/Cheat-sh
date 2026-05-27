@@ -56,12 +56,17 @@ ax.barh(categories, values)   # horizontal bars
 data = np.random.randn(1000)
 ax.hist(data, bins=30, color='teal', edgecolor='white', alpha=0.7)`, description: 'Line, scatter, bar, histogram', language: 'python' },
         { code: `# Box plot
+data1 = np.random.randn(100)
+data2 = np.random.randn(100) + 1
+data3 = np.random.randn(100) - 1
 ax.boxplot([data1, data2, data3], labels=['A', 'B', 'C'])
 
 # Pie chart
 ax.pie(values, labels=categories, autopct='%1.1f%%', startangle=90)
 
 # Fill between
+y1 = np.sin(x)
+y2 = np.cos(x)
 ax.fill_between(x, y1, y2, alpha=0.3, color='green')
 
 # Step plot
@@ -71,7 +76,8 @@ ax.step(x, y, where='mid')
 ax.errorbar(x, y, yerr=0.1, fmt='o', capsize=5)
 
 # Image / heatmap
-ax.imshow(matrix, cmap='viridis', aspect='auto')
+matrix = np.random.rand(10, 10)
+im = ax.imshow(matrix, cmap='viridis', aspect='auto')
 fig.colorbar(im, ax=ax)`, description: 'Box, pie, fill_between, imshow', language: 'python' },
       ]
     },
@@ -147,6 +153,8 @@ plt.rcParams['font.size'] = 12
 plt.rcParams['axes.linewidth'] = 1.5
 plt.rcParams['figure.facecolor'] = '#0d1117'`, description: 'Colors, styles, rcParams', language: 'python' },
         { code: `# Annotations and text
+x_peak = np.pi / 2
+y_peak = 1.0
 ax.annotate('Peak', xy=(x_peak, y_peak),
             xytext=(x_peak+0.5, y_peak+0.1),
             arrowprops=dict(arrowstyle='->', color='red'),
@@ -155,7 +163,7 @@ ax.text(0.5, 0.5, 'Label', transform=ax.transAxes,
         ha='center', va='center', fontsize=12)
 ax.axhline(y=0, color='black', linewidth=1)  # horizontal line
 ax.axvline(x=0, color='black', linewidth=1)  # vertical line
-ax.axhspan(y1, y2, alpha=0.2, color='yellow')  # shaded band`, description: 'Annotations, reference lines, shading', language: 'python' },
+ax.axhspan(ymin=-0.5, ymax=0.5, alpha=0.2, color='yellow')  # shaded band`, description: 'Annotations, reference lines, shading', language: 'python' },
       ]
     },
     {
@@ -183,7 +191,7 @@ sns.barplot(x='day', y='total_bill', data=df, errorbar='sd')
 sns.countplot(x='day', data=df)
 sns.stripplot(x='day', y='total_bill', data=df, jitter=True)`, description: 'Seaborn distribution and categorical plots', language: 'python' },
         { code: `# Heatmap (correlation matrix)
-corr = df.corr()
+corr = df.select_dtypes('number').corr()  # numeric cols only
 sns.heatmap(corr, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, square=True)
 

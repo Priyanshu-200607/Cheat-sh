@@ -576,6 +576,20 @@ code, pre {
   position: relative;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
+  min-width: 0;
+}
+
+.code-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.snippet-code-block pre,
+.snippet-code-block code {
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .snippet-description {
@@ -826,6 +840,19 @@ code, pre {
   }
 
   .snippet-description { text-align: left; max-width: 100%; }
+
+  .snippet-code-block {
+    max-width: calc(100vw - 2rem);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Syntax highlighter wrapper must also scroll */
+  .snippet-code-block > div,
+  .snippet-code-block > pre {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
 
   .stats-bar { gap: 1rem; flex-wrap: wrap; }
 }
