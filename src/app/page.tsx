@@ -116,7 +116,7 @@ export default function HomePage() {
         <SectionHeader emoji="📦" title="Python Libraries" />
         <div className="category-grid">
           {allCategories
-            .filter((c) => ['numpy', 'pandas', 'matplotlib'].includes(c.id))
+            .filter((c) => ['numpy', 'pandas', 'matplotlib', 'sklearn'].includes(c.id))
             .map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} index={i} />
             ))}
@@ -124,13 +124,25 @@ export default function HomePage() {
       </section>
 
       {/* CS Fundamentals */}
-      <section>
+      <section style={{ marginBottom: '2.5rem' }}>
         <SectionHeader emoji="🧠" title="CS Fundamentals &amp; Interview Prep" />
         <div className="category-grid">
           {allCategories
             .filter((c) =>
               ['dsa', 'sql', 'os', 'system-design', 'cryptography'].includes(c.id)
             )
+            .map((cat, i) => (
+              <CategoryCard key={cat.id} category={cat} index={i} />
+            ))}
+        </div>
+      </section>
+
+      {/* DevOps & Tools */}
+      <section>
+        <SectionHeader emoji="🛠️" title="DevOps &amp; Developer Tools" />
+        <div className="category-grid">
+          {allCategories
+            .filter((c) => ['git', 'docker'].includes(c.id))
             .map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} index={i} />
             ))}

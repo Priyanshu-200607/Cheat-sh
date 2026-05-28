@@ -160,6 +160,19 @@ export function SidebarWrapper({ children }: SidebarWrapperProps) {
               onNavigate={() => setMobileSidebarOpen(false)}
             />
           ))}
+
+          <div className="sidebar-category-title">DevOps &amp; Tools</div>
+          {allCategories.filter(c => ['git','docker'].includes(c.id)).map(cat => (
+            <SidebarCategory
+              key={cat.id}
+              category={cat}
+              isExpanded={mounted && expandedCategories.has(cat.id)}
+              onToggle={() => toggleCategory(cat.id)}
+              currentCategory={mounted ? currentCategory : ''}
+              currentSection={mounted ? currentSection : ''}
+              onNavigate={() => setMobileSidebarOpen(false)}
+            />
+          ))}
         </nav>
 
         {/* Bottom actions */}

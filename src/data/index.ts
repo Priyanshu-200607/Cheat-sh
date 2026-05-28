@@ -13,6 +13,8 @@ import { sqlData } from './sql';
 import { osData } from './os';
 import { systemDesignData } from './systemdesign';
 import { cryptoData } from './cryptography';
+import { gitData } from './git';
+import { dockerData } from './docker';
 
 export const allCategories: Category[] = [
   pythonData,
@@ -29,6 +31,8 @@ export const allCategories: Category[] = [
   osData,
   systemDesignData,
   cryptoData,
+  gitData,
+  dockerData,
 ];
 
 export const getCategoryById = (id: string): Category | undefined =>
