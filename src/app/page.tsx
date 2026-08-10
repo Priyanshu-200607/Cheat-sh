@@ -129,7 +129,7 @@ export default function HomePage() {
         <div className="category-grid">
           {allCategories
             .filter((c) =>
-              ['dsa', 'sql', 'os', 'system-design', 'cryptography'].includes(c.id)
+              ['dsa', 'sql', 'dbms', 'os', 'system-design', 'cryptography', 'networking'].includes(c.id)
             )
             .map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} index={i} />
