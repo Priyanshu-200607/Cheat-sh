@@ -479,5 +479,53 @@ def binary_search(arr, target):
     return -1`, description: 'Merge sort, quick sort, binary search', language: 'python' },
       ]
     },
+    {
+      id: 'dsa-theoretical-concepts',
+      title: 'Theoretical Concepts & Algorithms',
+      description: 'Core concepts and algorithms in Data Structures & Algorithms',
+      snippets: [
+        { code: `# 1. Graph Algorithms
+# - BFS (Breadth-First Search): Queue based, finds shortest path in unweighted graphs. O(V+E)
+# - DFS (Depth-First Search): Stack/Recursion based, topological sort, connected components. O(V+E)
+# - Dijkstra's: Shortest path in weighted graphs (non-negative). Priority Queue. O(E log V)
+# - Bellman-Ford: Shortest path with negative weights, detects negative cycles. O(V*E)
+# - Floyd-Warshall: All-pairs shortest path. O(V^3)
+# - Kruskal's & Prim's: Minimum Spanning Tree (MST).
+
+# 2. Dynamic Programming
+# - Overlapping subproblems & Optimal substructure.
+# - Memoization (Top-Down) vs Tabulation (Bottom-Up).
+# - Classic DP: Knapsack, LCS, LIS, Matrix Chain Multiplication.
+
+# 3. String Algorithms
+# - KMP (Knuth-Morris-Pratt): Pattern matching in O(N+M) using LPS array.
+# - Rabin-Karp: Pattern matching using rolling hash.
+# - Trie: Prefix tree for efficient string search/insertion.
+
+# 4. Complexity Classes
+# - P: Solvable in polynomial time.
+# - NP: Verifiable in polynomial time.
+# - NP-Complete: Hardest problems in NP.`, description: 'Graphs, DP, Strings, Complexity', language: 'python' }
+      ]
+    },
+    {
+      id: 'dsa-core-questions',
+      title: 'Core Technical Questions',
+      description: 'Fundamental DSA interview questions',
+      snippets: [
+        { code: `Q1: How does a Hash Table resolve collisions?
+A1: Two common methods:
+1. Chaining: Each bucket holds a linked list of entries that map to the same index.
+2. Open Addressing (e.g., Linear Probing, Quadratic Probing, Double Hashing): If a collision occurs, find the next empty slot based on a probing sequence.
+
+Q2: Difference between Array and Linked List?
+A2: 
+- Array: Contiguous memory, O(1) random access, fixed size (or dynamic with resizing cost), O(n) insertion/deletion in middle.
+- Linked List: Non-contiguous memory (nodes with pointers), O(n) access, dynamic size, O(1) insertion/deletion if pointer is given.
+
+Q3: Explain the concept of a balanced Binary Search Tree (BST).
+A3: A balanced BST (like AVL Tree or Red-Black Tree) automatically keeps its height small (O(log n)) after insertions and deletions. This guarantees that search, insert, and delete operations take O(log n) time, preventing the O(n) worst-case of a skewed tree.`, description: 'Hash Tables, Arrays vs Linked Lists, Balanced BSTs', language: 'markdown' }
+      ]
+    }
   ]
 };

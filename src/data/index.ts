@@ -15,6 +15,8 @@ import { systemDesignData } from './systemdesign';
 import { cryptoData } from './cryptography';
 import { gitData } from './git';
 import { dockerData } from './docker';
+import { dbmsData } from './dbms';
+import { networkingData } from './networking';
 
 export const allCategories: Category[] = [
   pythonData,
@@ -33,6 +35,8 @@ export const allCategories: Category[] = [
   cryptoData,
   gitData,
   dockerData,
+  dbmsData,
+  networkingData,
 ];
 
 export const getCategoryById = (id: string): Category | undefined =>

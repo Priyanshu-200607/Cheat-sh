@@ -254,5 +254,55 @@ export const osData: Category = {
 # /proc  — process/system info (virtual FS)`, description: 'File systems, inodes, permissions, Linux dirs', language: 'python' },
       ]
     },
+    {
+      id: 'os-theoretical-concepts',
+      title: 'Theoretical Concepts & Algorithms',
+      description: 'Core concepts and algorithms in Operating Systems',
+      snippets: [
+        { code: `# 1. Process Synchronization
+# - Mutex: Mutual Exclusion Object, acts as a lock.
+# - Semaphore: Integer variable (binary or counting) for signaling.
+# - Monitor: High-level synchronization construct.
+
+# 2. Deadlock Avoidance Algorithm
+# Banker's Algorithm:
+# - Needs: Max demand, Current allocation, Available resources.
+# - Simulates allocation to see if system stays in a "safe state".
+
+# 3. Memory Management Algorithms
+# - Paging vs Segmentation
+# - Page Replacement: 
+#   - FIFO: First In First Out (suffers from Belady's Anomaly)
+#   - LRU: Least Recently Used
+#   - Optimal: Replace page not used for longest time in future
+
+# 4. Disk Scheduling Algorithms
+# - FCFS, SSTF (Shortest Seek Time First)
+# - SCAN (Elevator algorithm), C-SCAN
+# - LOOK, C-LOOK`, description: 'Synchronization, Banker\'s Algorithm, Page Replacement, Disk Scheduling', language: 'python' }
+      ]
+    },
+    {
+      id: 'os-core-questions',
+      title: 'Core Technical Questions',
+      description: 'Fundamental OS interview questions',
+      snippets: [
+        { code: `Q1: What is a deadlock and what are its necessary conditions?
+A1: A deadlock is a state where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process.
+Necessary conditions (Coffman conditions):
+1. Mutual Exclusion
+2. Hold and Wait
+3. No Preemption
+4. Circular Wait
+
+Q2: What is thrashing?
+A2: Thrashing occurs when a computer's virtual memory subsystem is in a constant state of paging. The system spends most of its time swapping pages in and out of memory rather than executing instructions, leading to a severe performance collapse.
+
+Q3: Explain the difference between internal and external fragmentation.
+A3: 
+- Internal Fragmentation: Occurs when memory is divided into fixed-sized blocks. Allocated memory may be slightly larger than requested memory; the size difference is wasted space inside the allocated block.
+- External Fragmentation: Occurs when free memory is separated into small blocks and is interspersed by allocated memory. It's a weakness of certain storage allocation algorithms where total free space exists to satisfy a request, but it is not contiguous.`, description: 'Deadlock, Thrashing, Fragmentation', language: 'markdown' }
+      ]
+    }
   ]
 };
